@@ -30,28 +30,37 @@ a {
   font-size: 14px;
   cursor:pointer;
   text-decoration: none;
-  padding: 10px 0px;
   display: inline-block;
   position: relative;
   opacity: 0.75;
 }
 .navlink:hover{
   opacity: 1;
+  color: #7C3AED;
   
 }
-.navlink::before{
-  transition: 300ms;
-  height: 3px;
-  content: "";
-  position: absolute;
-  background-color: #3B82F6;
+
+.text-gradient{
+  background-image: linear-gradient(to top right,var(--tw-gradient-stops));
+    --tw-gradient-from: #7269d1;
+    --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-to,rgba(114,105,209,0));
+    --tw-gradient-to: #d85b95;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 4px;
 }
-.nav-ltr::before{
-  width: 0%;
-  bottom: 10px;
+
+.stylistic-quote-mark {
+  font-size: 5rem;
+  right: 100%;
+  @apply mr-2 hidden font-sans text-xs absolute top-0 leading-none;
 }
-.navlink:hover::before{
-  width: 100%;
+
+@screen sm {
+  .stylistic-quote-mark {
+    @apply block;
+  }
 }
 
 .img{

@@ -4,7 +4,7 @@ module.exports = {
       fontFamily: {
         'sans': ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
         'mono':['Dela Gothic One','Abril Fatface','monosopace'],
-        'title':['DM Sans', 'Arial'],
+        'title':['DM Sans', 'sans-serif'],
       }
     },
   },

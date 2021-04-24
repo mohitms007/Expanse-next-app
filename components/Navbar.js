@@ -7,7 +7,7 @@ export default function Navbar() {
     return (
         <nav className="bg-white px-4 py-2">
             <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-center ">
+                <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-1">
                         <div></div>
                         <div className="font-mono text-3xl">
@@ -39,3 +39,4 @@ export default function Navbar() {
 
     )
 }
+

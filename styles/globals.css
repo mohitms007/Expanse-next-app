@@ -36,8 +36,7 @@ a {
 }
 .navlink:hover{
   opacity: 1;
-  color: #7C3AED;
-  
+  @apply text-blue-500;
 }
 
 .text-gradient{
@@ -49,6 +48,16 @@ a {
     background-clip: text;
     color: transparent;
     padding: 4px;
+}
+.text-gradient1{
+
+  background-image: linear-gradient(to top right,var(--tw-gradient-stops));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 4px;
+  @apply bg-gradient-to-b from-yellow-400 to-red-500 ;
+  
 }
 
 .stylistic-quote-mark {

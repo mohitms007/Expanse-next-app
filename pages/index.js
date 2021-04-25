@@ -18,7 +18,7 @@ export default function Home({data}) {
                     </div>
                     
 
-                    <button className="font-sans flex  text-white bg-purple-700   hover:-translate-y-0.5 transform transition justify-center items-center mx-auto text-lg hover:bg-white hover:text-purple-700 p-3 rounded-lg">Get Started<AiOutlineArrowRight className="ml-2"/></button>
+                    <button className="font-sans flex  text-white bg-blue-600   focus:outline-none hover:-translate-y-0.5 transform transition justify-center items-center mx-auto text-lg hover:bg-white hover:text-purple-700 py-3 px-4 rounded-full">Get Started<AiOutlineArrowRight className="ml-2"/></button>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@ export default function Home({data}) {
     } </>)} 
                 
                 
-        export const getServerSideProps = async() => {
+export const getServerSideProps = async() => {
             const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}&count=3`)
                 const data = await res.json()
                 return {
@@ -86,3 +86,4 @@ export default function Home({data}) {
                         data
                     }}
 }
+

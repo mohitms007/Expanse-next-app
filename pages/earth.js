@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from 'react'
 import {AiOutlineArrowRight} from 'react-icons/ai'
 import axios from 'axios'
@@ -65,13 +66,14 @@ export default function Earth({data}) {
 
                 <Link
                 to="main-section"
-                    className="font-sans flex   bg-red-600 hover:bg-red-700  text-white  hover:-translate-y-0.5 transform transition justify-center items-center mx-auto text-lg  p-3 rounded-full">Get Started<AiOutlineArrowRight smooth={true} className="ml-2"/></Link>
+                    className="font-sans flex  max-w-xs bg-red-600 hover:bg-red-700 cursor-pointer text-white  hover:-translate-y-0.5 transform transition justify-center items-center mx-auto text-lg  p-2 rounded-full">Get Started<AiOutlineArrowRight
+                    className="ml-2"/></Link>
             </div>
         </div>
 
         <img className="w-full object-cover img" src="/earth.webp"/>
     </div> <div className = "m-4" >
-    <div id="main-section" className="text-6xl font-sans  text-center mt-24 mb-8 h-28 font-semibold tracking-tighter lg:text-7xl bg-clip-text title-font text-gradient1 text-transparent">Get Images from any location</div>
+    <div id="main-section" className="text-6xl font-sans p-6 text-center mt-24 mb-8 h-28 font-semibold tracking-tighter lg:text-7xl bg-clip-text title-font text-gradient1 text-transparent">Get Images from any location</div>
     
     <div className = " max-w-6xl flex mx-auto m-4 mb-28" >
        <p className="text-lg text-center flex align-center justify-center text-gray-500">*Landsat imagery is provided to the public as a joint project between NASA and USGS. A recent industry report on landsat satellite imagery data estimates that total annual value to the economy of $2.19 billion, far exceeding the multi-year total cost of building, launching, and managing Landsat satellites and sensors. The value is derived from consumer use of the data. The objective of this endpoint is to give you an easy to use taste of what Landsat imagery data can provide. </p></div>

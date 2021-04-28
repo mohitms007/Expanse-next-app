@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 
-
-
 export default function Navbar() {
     return (
         <nav className="bg-white px-4 py-2">
@@ -10,19 +8,23 @@ export default function Navbar() {
                 <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-1">
                         <div></div>
-                        <div className="font-mono text-3xl">
-                            Expanse
-                        </div>
-                    </div>
-                    <div className="flex text-lg font-bold font-title  box-border text-gray-700 mb-0 justify-baseline space-x-6">
-                        <Link href="/about">
-                            <div className="py-4">
-                                <div className="navlink">Weather</div>
+                        <Link href="/">
+                            <div className="font-mono text-3xl">
+                                Expanse
                             </div>
                         </Link>
-                        <Link href="/about">
+
+                    </div>
+                    <div
+                        className="flex text-lg font-bold font-title  box-border text-gray-700 mb-0 justify-baseline space-x-6">
+                        <Link href="/earth">
                             <div className="py-4">
-                                <div className="navlink">Gallery</div>
+                                <div className="navlink">Earth</div>
+                            </div>
+                        </Link>
+                        <Link href="/rover-gallery">
+                            <div className="py-4">
+                                <div className="navlink">Rover</div>
                             </div>
                         </Link>
                         <Link href="/about">
@@ -30,7 +32,7 @@ export default function Navbar() {
                                 <div className="navlink">About</div>
                             </div>
                         </Link>
-                        
+
                     </div>
                 </div>
 
@@ -39,4 +41,3 @@ export default function Navbar() {
 
     )
 }
-

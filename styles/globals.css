@@ -76,3 +76,13 @@ a {
 .img{
   height: 60rem;
 }
+
+
+.logo {
+  text-align: center;
+  background-size: contain;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  height: 800px;
+}
+

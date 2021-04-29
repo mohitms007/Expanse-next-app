@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 
+
+
 export default function Navbar() {
     return (
         <nav className="bg-white px-4 py-2">
@@ -25,6 +27,11 @@ export default function Navbar() {
                         <Link href="/rover-gallery">
                             <div className="py-4">
                                 <div className="navlink">Rover</div>
+                            </div>
+                        </Link>
+                        <Link href="/space-search">
+                            <div className="py-4">
+                                <div className="navlink">Search</div>
                             </div>
                         </Link>
                         <Link href="/about">

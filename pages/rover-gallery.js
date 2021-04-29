@@ -1,6 +1,7 @@
 import React from 'react'
 import {AiFillDownCircle} from 'react-icons/ai'
 import {useRouter} from 'next/router'
+import {Link} from 'react-scroll'
 
 export default function RoverGallery({data}) {
 
@@ -14,52 +15,60 @@ export default function RoverGallery({data}) {
     return (
         <div>
 
+<div className="w-full items-center justify-center flex-col  mx-auto">
+        <div className="flex justify-center h-200">
             <div
-                className="mx-auto logo h-full  sm:object-contain"
-                style={{
-                backgroundImage: `url('./space-2.jpg')`
-            }}>
-                <div
-                    className="text-white text-4xl sm:text-5xl lg:text-7xl flex flex-col space-y-6 font-mono font-bold">
-
-                    <h1 className="sm:mt-24 mt-6 xs:mt-12 text-brown-500">
-                        Incredible</h1>
+                className="flex-col space-y-7 text-4xl text-center absolute top-0 font-mono sm:text-6xl lg:text-8xl text-white mt-40">
+                <div className="mb-16 space-y-6">
                     <h1>
-                        Rover Shots</h1>
-                    <div className="mx-auto">
-                        <AiFillDownCircle className="mt-6 text-3xl sm:text-5xl lg:text-7xl"/>
-                    </div>
+                        Incredible 
+                    </h1>
+                    <h1>
+                        Rover Shots
+                    </h1>
                 </div>
+                <Link to="rovers">
+                <AiFillDownCircle  className="text-white mx-auto cursor-pointer text-5xl lg:text-7xl" />
+                </Link>
+                
             </div>
+           
+        </div>
+        <div>
+        <img className="max-w-8xl rounded-lg mx-auto object-cover img" src="/space-2.jpg"/>
+        </div>
 
+       
+    </div>
             <div
-                className="flex p-16 flex-col m-16 max-w-6xl mx-auto  border-2 border-gray-500 rounded-lg">
+                id="rovers"
+                className="flex p-16 flex-col m-16 max-w-6xl mx-auto border-t-2  border-b-2 rounded-lg">
                      <h1 className="text-2xl text-center  mb-2 inline-block font-bold">
                         Categories of Rovers</h1>
                         <p className="text-center text-gray-500 mb-2 text-sm">(Select any one of them)</p>
                 <div
-                    className="text-gray-800 flex flex-col md:flex-row justify-center text-center space-y-2 md:space-y-0 border-gray-500">
+                    className="text-gray-800 flex flex-col md:flex-row justify-center text-center space-y-2 md:space-y-0">
 
                    
-                    <div className="p-4 sm:p-10">
+                    <div onClick={() => router.push(`/rover-gallery/?rover=curiosity`)} className="p-4 sm:p-10 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
 
                         <div
                             className="rounded align-center justify-items-center h-72 overflow-hidden shadow-lg">
-                            <img className="object-cover w-72 h-48" src="./curiosity.webp" alt="Mountain"/>
+                            <img className="object-cover lg:w-96 w-full h-48" src="./curiosity.webp" alt="Mountain"/>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-4"></div>
                                 <p className="text-gray-700 font-bold text-base">
                                     Curiosity Rover
-                                    <p className="text-xs pt-2">(Default)</p>
+                                    <p className="text-xs pt-1"> Default </p>
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="p-4 sm:p-10">
+                    <div onClick={() => router.push(`/rover-gallery/?rover=opportunity`)} className="p-4 sm:p-10 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
 
                         <div
                             className="rounded align-center justify-items-center overflow-hidden h-72 shadow-lg">
-                            <img className="object-cover w-72 h-48" src="./opp-rover.jpg" alt="Mountain"/>
+                            <img className="object-cover lg:w-96 w-full h-48" src="./opp-rover.jpg" alt="Mountain"/>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-4"></div>
                                 <p className="text-gray-700 font-bold text-base">
@@ -68,11 +77,11 @@ export default function RoverGallery({data}) {
                             </div>
                         </div>
                     </div>
-                    <div className="p-4 sm:p-10">
+                    <div onClick={() => router.push(`/rover-gallery/?rover=spirit`)} className="p-4 sm:p-10 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
 
                         <div
                             className="rounded align-center justify-items-center overflow-hidden h-72 shadow-lg">
-                            <img className="object-cover w-72 h-48" src="./spirit.jpg" alt="Mountain"/>
+                            <img className="object-cover lg:w-96 w-full h-48" src="./spirit.jpg" alt="Mountain"/>
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-4"></div>
                                 <p className="text-gray-700 font-bold text-base">

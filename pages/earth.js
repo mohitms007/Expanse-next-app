@@ -49,11 +49,11 @@ export default function Earth({data}) {
     }
 
     return ( <> <div className="w-full items-center justify-center flex-col  mx-auto">
-        <div className="flex justify-center h-200">
+        <div className="flex justify-center m-2 h-200">
             <div
-                className="flex-col space-y-7 text-4xl text-center absolute top-0 font-bold font-mono sm:text-5xl lg:text-8xl text-white mt-60">
+                className="flex-col space-y-7 text-4xl text-center absolute top-0 font-mono sm:text-5xl lg:text-6xl text-white mt-60">
                 <div className="mb-16 space-y-6">
-                    <h1 className="text-yellow-300">
+                    <h1 className="text-blue-500">
                         Landset Imagery
                     </h1>
                     <h1>
@@ -66,12 +66,15 @@ export default function Earth({data}) {
 
                 <Link
                 to="main-section"
-                    className="font-sans flex  max-w-xs bg-red-600 hover:bg-red-700 cursor-pointer text-white  hover:-translate-y-0.5 transform transition justify-center items-center mx-auto text-lg  p-2 rounded-full">Get Started<AiOutlineArrowRight
+                    className="font-sans  flex  max-w-xs text-white bg-blue-600 focus:outline-none hover:-translate-y-0.5 transform transition justify-center items-center mx-auto text-lg hover:bg-white hover:text-purple-700 py-3 px-4 rounded-full">Get Started<AiOutlineArrowRight
                     className="ml-2"/></Link>
             </div>
         </div>
+        <div className="">
+        <img className="max-w-8xl rounded-lg mx-auto object-cover img" src="/Space.jpg"/>
+        </div>
 
-        <img className="w-full object-cover img" src="/earth.webp"/>
+       
     </div> <div className = "m-4" >
     <div id="main-section" className="text-6xl font-sans p-6 text-center mt-24 mb-8 h-28 font-semibold tracking-tighter lg:text-7xl bg-clip-text title-font text-gradient1 text-transparent">Get Images from any location</div>
     
@@ -111,7 +114,7 @@ export default function Earth({data}) {
 
     <div className="flex flex-col space-y-4  items-center justify-center text-center mb-12">
    {<p className="text-gray-500">Image will load here after clicking. Please wait for processing about 15 seconds or Try again.</p>}
-     {!imageError && <img src={imageUrl} className="rounded-lg" width="600" height="600"/>}
+     {!imageError && imageUrl && <img src={imageUrl} className="rounded-lg" width="600" height="600"/>}
     </div>
    {imageError && <p className="text-center text-red-500">{imageError}</p>} 
         </div > </>)

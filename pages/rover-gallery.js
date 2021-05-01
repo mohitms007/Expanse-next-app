@@ -47,7 +47,7 @@ export default function RoverGallery({data}) {
                         Categories of Rovers</h1>
                         <p className="text-center text-gray-500 mb-2 text-sm">(Select any one of them)</p>
                 <div
-                    className="text-gray-800 flex flex-col md:flex-row justify-center text-center space-y-2 md:space-y-0">
+                    className="text-gray-800 flex flex-col lg:flex-row justify-center text-center space-y-2 md:space-y-0">
 
                    
                     <div onClick={() => router.push(`/rover-gallery/?rover=curiosity`)} className="p-4 sm:p-10 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
@@ -56,10 +56,10 @@ export default function RoverGallery({data}) {
                             className="rounded align-center justify-items-center h-72 overflow-hidden shadow-lg">
                             <img className="object-cover lg:w-96 w-full h-48" src="./curiosity.webp" alt="Mountain"/>
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-4"></div>
+                                <div className="font-bold text-xl mb-3"></div>
                                 <p className="text-gray-700 font-bold text-base">
                                     Curiosity Rover
-                                    <p className="text-xs pt-1"> Default </p>
+                                    <p className="text-xs pt-1 pb-2"> Default </p>
                                 </p>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ export default function RoverGallery({data}) {
                             className="rounded align-center justify-items-center overflow-hidden h-72 shadow-lg">
                             <img className="object-cover lg:w-96 w-full h-48" src="./opp-rover.jpg" alt="Mountain"/>
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-4"></div>
+                                <div className="font-bold text-xl mb-3"></div>
                                 <p className="text-gray-700 font-bold text-base">
                                     Opportunity Rover
                                 </p>
@@ -83,7 +83,7 @@ export default function RoverGallery({data}) {
                             className="rounded align-center justify-items-center overflow-hidden h-72 shadow-lg">
                             <img className="object-cover lg:w-96 w-full h-48" src="./spirit.jpg" alt="Mountain"/>
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-4"></div>
+                                <div className="font-bold text-xl mb-2"></div>
                                 <p className="text-gray-700 font-bold text-base">
                                     Spirit Rover
                                 </p>

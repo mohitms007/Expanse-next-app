@@ -54,7 +54,7 @@ export default function SpaceSearch({data, error}) {
             </div>
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    {data
+                    {error === false || error !== 'empty' ? data
                         ?.map((item, index) => {
                             const {data, links} = item
                             const {title, description_508} = data[0]
@@ -89,13 +89,13 @@ export default function SpaceSearch({data, error}) {
                                 </div>
                             )
 
-                        })
+                        }):null
 }
 
                 </div>
                 <div className="flex justify-center align-center">
 
-                    <p className="text-center mt-16">{error
+                    <p className="text-center mt-16">{error === true || error !== 'empty'
                             ? 'No Results found. Please try again.'
                             : null}</p>
                 </div>
@@ -117,18 +117,28 @@ export const getServerSideProps = async({query}) => {
             .items
             .slice(0, 10)
 
-    }
-    let error;
-    if (data.length == 0) {
-        error = true
-    } else {
-        error = false
-    }
-    return {
-        props: {
-            error,
-            data
+            let error;
+            if (data.length == 0) {
+                error = true
+            } else {
+                error = false
+            }
+            return {
+                props: {
+                    error,
+                    data
+                }
+            }       
+
+    }else{
+        let error = 'empty'
+        return {
+            props:{
+                data,error
+            }
+            
         }
     }
+   
 
 }

@@ -1,11 +1,12 @@
-
 import React, {useEffect, useState} from 'react'
 import {AiOutlineArrowRight} from 'react-icons/ai'
 import axios from 'axios'
 import {Link} from 'react-scroll'
+import {useRouter } from 'next/router'
+
 
 export default function Earth({data}) {
-
+    const router = useRouter()
     const [latitude, setLatitude] = useState('')
     const [longitude, setLongitude] = useState('')
     const [imageUrl,setImageUrl] = useState('')
@@ -31,21 +32,22 @@ export default function Earth({data}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setImageUrl(DEFAULT_REQ)    
-        setImageError('')
-        if(!latitude || !longitude || latitude === '' || longitude === ''){
-            setImageError('Please fill all the values')
-        }else{
-            axios.get(DEFAULT_REQ).catch(e => {
-                if(e.response){
-                  setImageError('Error Happened while fetching image.')
-                  setImageUrl(DEFAULT_REQ)
-                }else{
-                    setImageUrl(DEFAULT_REQ)
+        router.push(`/earth?lat=${latitude}&lon=${longitude}`)
+        // setImageUrl(DEFAULT_REQ)    
+        // setImageError('')
+        // if(!latitude || !longitude || latitude === '' || longitude === ''){
+        //     setImageError('Please fill all the values')
+        // }else{
+        //     axios.get(DEFAULT_REQ).catch(e => {
+        //         if(e.response){
+        //           setImageError('Error Happened while fetching image.')
+        //           setImageUrl(DEFAULT_REQ)
+        //         }else{
+        //             setImageUrl(DEFAULT_REQ)
                    
-                }
-            })
-        }
+        //         }
+        //     })
+        // }
     }
 
     return ( <> <div className="w-full items-center justify-center flex-col  mx-auto">
@@ -111,12 +113,22 @@ export default function Earth({data}) {
     </div>
     </form> </div>
    
-
+{/* 
     <div className="flex flex-col space-y-4  items-center justify-center text-center mb-12">
    {<p className="text-gray-500">Image will load here after clicking. Please wait for processing about 15 seconds or Try again.</p>}
      {!imageError && imageUrl && <img src={imageUrl} className="rounded-lg" width="600" height="600"/>}
     </div>
-   {imageError && <p className="text-center text-red-500">{imageError}</p>} 
+   {imageError && <p className="text-center text-red-500">{imageError}</p>}  */}
         </div > </>)
 }
 
+export const getServerSideProps = async({query}) => {
+    if(query){
+        console.log(query)
+    }
+    return{
+        props:{
+            query
+        }
+    }
+}

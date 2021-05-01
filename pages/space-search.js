@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import {useRouter} from 'next/router'
 
-export default function SpaceSearch({data}) {
+export default function SpaceSearch({data,error}) {
+
 
     const router = useRouter()
     let searchField = ''
@@ -15,8 +16,7 @@ export default function SpaceSearch({data}) {
 
     }
 
-
-    return  (
+    return (
         <div>
             <div className="main mx-auto">
                 <div className="px-4  sm:px-8 lg:px-16 xl:px-20 mx-auto">
@@ -39,8 +39,8 @@ export default function SpaceSearch({data}) {
                                             type="search"
                                             name=""
                                             id=""
-                                            onChange={(e) => searchField = e.target.value}
-                                            placeholder="Search for Space-Stories"
+                                            onChange={(e) => {searchField = e.target.value}}
+                                            placeholder="Search for Space-Stories For ex. apollo 11"
                                             x-model="q"
                                             className="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent"/>
                                         <button type="submit" className="outline-none focus:outline-none"><AiOutlineSearch className="ml-2 text-gray-500"/></button>
@@ -52,44 +52,44 @@ export default function SpaceSearch({data}) {
                 </div>
             </div>
             <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {
-                    data?.map((item) => {
-                        const {data, links} = item
-                        const {title,description_508} = data[0]
-                        return(
-                            <div
-                            className="p-4 sm:p-10 cursor-pointer w-96 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-            
-                            <div
-                                className="rounded align-center flex flex-col justify-center items-center h-72 overflow-hidden shadow-lg">
-                                <img
-                                    className="object-cover lg:w-96 w-full h-48"
-                                    src="./curiosity.webp"
-                                    alt="Mountain"/>
-                                <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-4"></div>
-                                    <p className="text-gray-700 text-center font-bold text-base">
-                                        {title}
-                                        <p className="text-xs pt-1">
-                                            Default
-                                        </p>
-                                    </p>
-                                    
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    { data
+                        ?.map((item,index) => {
+                            const {data, links} = item
+                            const {title, description_508} = data[0]
+                            return (
+                                <div
+                                    key={index}
+                                    className="p-4 sm:p-10 w-96">
+
+                                    <div
+                                        className="rounded align-center flex flex-col justify-center h-96 items-center  overflow-hidden shadow-lg">
+                                        <img
+                                            className="object-cover text-center leading-250 lg:w-96 w-full h-48"
+                                            src={links?.[0].href}
+                                            alt=" No Image in the database"/>
+                                        <div className="px-6 py-4">
+                                            <div className="font-bold text-xl mb-4"></div>
+                                            <p className="text-gray-700 text-center font-bold text-base">
+                                                {title.substring(0,40)}..
+                                            </p>
+                                            <p className="text-gray-500 text-center mt-4 text-xs ">
+                                                {data[0]?.description?.substring(0,250)}..
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        )
-                       
-                    })
-                }
-                
-          
+                            )
+
+                        })
+}
+
+                </div>
+                <div className="flex justify-center align-center">
+
+                    <p className="text-center mt-16">{error ? 'No Results found. Please try again.': null}</p>
+                </div>
             </div>
-          
-            </div>
-          
-         
 
         </div>
     )
@@ -108,14 +108,16 @@ export const getServerSideProps = async({query}) => {
                 .slice(0, 10)
       
     }
-    if(data !== ''){
-        return {props: {
-            data
-        }}
+    let error;
+    if(data.length == 0){
+        error = true
     }else{
-        return {props: {
-            data: null
-        }}
+        error = false
+    }
+    return {
+        props:{
+            error,data
+        }
     }
   
 

@@ -86,3 +86,18 @@ a {
   height: 800px;
 }
 
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.employeeOfTheMonth{
+  text-align: center;
+}
+
+.employeeOfTheMonth img{
+  width: 250px;
+  border-radius: 100%;
+}

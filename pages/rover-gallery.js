@@ -122,7 +122,6 @@ export default function RoverGallery({data}) {
                                 </div>
                             </div>
                         )
-
                     })
 }
                 </div>

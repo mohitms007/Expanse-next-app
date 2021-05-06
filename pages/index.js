@@ -1,5 +1,6 @@
 import {AiOutlineArrowRight} from 'react-icons/ai'
 
+
 export default function Home({data}) {
     const {url, explanation} = data
     return (

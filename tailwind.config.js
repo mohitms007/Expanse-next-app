@@ -14,6 +14,7 @@ module.exports = {
         'sans': ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
         'mono':['Dela Gothic One','Abril Fatface','monosopace'],
         'title':['DM Sans', 'sans-serif'],
+        'navbar':['Oswald']
       }
     },
   },

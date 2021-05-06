@@ -11,14 +11,15 @@ export default function Navbar() {
                     <div className="flex items-center space-x-1">
                         <div></div>
                         <Link href="/">
-                            <div className="font-mono text-3xl">
-                                Expanse
+                           
+                            <div className="font-mono flex flex-baseline cursor-pointer text-3xl">
+                            <img className="h-10 mr-2" src="./logo-2.png"/> Expanse
                             </div>
                         </Link>
 
                     </div>
                     <div
-                        className="flex text-lg font-bold font-title  box-border text-gray-700 mb-0 justify-baseline space-x-6">
+                        className="flex text-xl tracking-wider font-bold font-navbar  uppercase box-border text-gray-700 mb-0 justify-baseline space-x-6">
                         <Link href="/earth">
                             <div className="py-4">
                                 <div className="navlink">Earth</div>

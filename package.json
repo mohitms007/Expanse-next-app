@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.2",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
     "axios": "^0.21.1",
     "date-fns": "^2.21.1",
     "next": "10.1.3",

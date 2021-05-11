@@ -2,7 +2,9 @@ import React from 'react'
 import {AiFillDownCircle} from 'react-icons/ai'
 import {useRouter} from 'next/router'
 import {Link} from 'react-scroll'
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {useEffect} from "react";
 export default function RoverGallery({data}) {
 
     const real_data = data
@@ -11,6 +13,11 @@ export default function RoverGallery({data}) {
             return {id: item.id, img_src: item.img_src, earth_date: item.earth_date, camera: item.camera, rover: item.rover}
 
         })
+    useEffect(() => {
+        AOS.init({
+            // duration : 5000
+        });
+    }, []);
     const router = useRouter()
     return (
         <div>
@@ -18,7 +25,7 @@ export default function RoverGallery({data}) {
 <div className="w-full items-center justify-center flex-col  mx-auto">
         <div className="flex justify-center h-200">
             <div
-                className="flex-col space-y-7 text-4xl text-center absolute top-0 font-mono sm:text-6xl lg:text-8xl text-white mt-40">
+                className="flex-col space-y-7 text-4xl text-center absolute   top-0 font-mono sm:text-6xl lg:text-8xl text-white mt-40">
                 <div className="mb-16 space-y-6">
                     <h1>
                         Incredible 
@@ -28,7 +35,7 @@ export default function RoverGallery({data}) {
                     </h1>
                 </div>
                 <Link to="rovers">
-                <AiFillDownCircle  className="text-white mx-auto cursor-pointer text-5xl lg:text-7xl" />
+                <AiFillDownCircle  className="text-white animate__animated  animate__wobble mx-auto cursor-pointer text-5xl lg:text-7xl" />
                 </Link>
                 
             </div>
@@ -47,16 +54,18 @@ export default function RoverGallery({data}) {
                         Categories of Rovers</h1>
                         <p className="text-center text-gray-500 mb-2 text-sm">(Select any one of them)</p>
                 <div
+
                     className="text-gray-800 flex flex-col lg:flex-row justify-center text-center space-y-2 md:space-y-0">
 
                    
-                    <div onClick={() => router.push(`/rover-gallery/?rover=curiosity`)} className="p-4 sm:p-10 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+                    <div  onClick={() => router.push(`/rover-gallery/?rover=curiosity`)} className="p-4 sm:p-10 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
 
                         <div
-                            className="rounded align-center justify-items-center h-72 overflow-hidden shadow-lg">
+                            data-aos="fade-up"
+                            className="rounded  align-center justify-items-center h-72 overflow-hidden shadow-lg">
                             <img className="object-cover lg:w-96 w-full h-48" src="./curiosity.webp" alt="Mountain"/>
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-3"></div>
+
                                 <p className="text-gray-700 font-bold text-base">
                                     Curiosity Rover
                                     <p className="text-xs pt-1 pb-2"> Default </p>
@@ -67,10 +76,11 @@ export default function RoverGallery({data}) {
                     <div onClick={() => router.push(`/rover-gallery/?rover=opportunity`)} className="p-4 sm:p-10 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
 
                         <div
+                            data-aos="fade-up"
                             className="rounded align-center justify-items-center overflow-hidden h-72 shadow-lg">
                             <img className="object-cover lg:w-96 w-full h-48" src="./opp-rover.jpg" alt="Mountain"/>
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-3"></div>
+
                                 <p className="text-gray-700 font-bold text-base">
                                     Opportunity Rover
                                 </p>
@@ -80,10 +90,11 @@ export default function RoverGallery({data}) {
                     <div onClick={() => router.push(`/rover-gallery/?rover=spirit`)} className="p-4 sm:p-10 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
 
                         <div
+                            data-aos="fade-up"
                             className="rounded align-center justify-items-center overflow-hidden h-72 shadow-lg">
                             <img className="object-cover lg:w-96 w-full h-48" src="./spirit.jpg" alt="Mountain"/>
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2"></div>
+
                                 <p className="text-gray-700 font-bold text-base">
                                     Spirit Rover
                                 </p>
@@ -100,7 +111,7 @@ export default function RoverGallery({data}) {
 
                     {real_data.map((item) => {
                         return (
-                            <div key={item.id} className="p-4 sm:p-10">
+                            <div key={item.id} data-aos="zoom-in" className="p-4 sm:p-10">
 
                                 <div
                                     className="max-w-sm rounded align-center justify-items-center overflow-hidden shadow-lg">

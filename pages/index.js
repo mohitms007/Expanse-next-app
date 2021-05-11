@@ -1,8 +1,15 @@
 import {AiOutlineArrowRight} from 'react-icons/ai'
+import {useEffect} from "react";
+import AOS from "aos";
 
 
 export default function Home({data}) {
     const {url, explanation} = data
+    useEffect(() => {
+        AOS.init({
+            // duration : 5000
+        });
+    }, []);
     return (
         <div>
             <div
@@ -11,7 +18,7 @@ export default function Home({data}) {
                     <div
                         className="flex-col space-y-7 text-4xl text-center absolute top-0 font-bold font-mono sm:text-5xl lg:text-8xl text-white mt-60">
                         <div className="mb-16 space-y-6">
-                            <h1 className="text-pink-300">
+                            <h1 className="text-pink-300 animate__animated  animate__repeat-2 animate__bounce">
                                 Space at
                             </h1>
                             <h1>
@@ -28,11 +35,11 @@ export default function Home({data}) {
             </div>
             <div className="flex justify-center align-center">
                 <div
-                    className="text-6xl font-sans  text-center mt-24 mb-4  font-semibold tracking-tighter lg:text-7xl text-gradient title-font">Pictures of the day</div>
+                    className="text-6xl font-sans  text-center mt-24 mb-4   font-semibold tracking-tighter lg:text-7xl text-gradient title-font">Pictures of the day</div>
             </div>
 
             <div
-                className="flex-col flex items-center text-lg justify-items-center mx-auto p-6 rounded max-w-6xl">
+                className="flex-col  flex items-center text-lg justify-items-center mx-auto p-6 rounded max-w-6xl">
                 <p className="text-gray-500 max-w-3xl text-center mx-2 my-6 italic">"I want to
                     know why the universe exist, why there is something greater than nothing."</p>
                 <div className="flex items-center justify-center">
@@ -50,7 +57,8 @@ export default function Home({data}) {
                     key={index}
                     className='rounded-lg text-gray-800 container mt-32 mx-auto mb-2 p-4 max-w-6xl'>
                     <div
-                        className={index % 2 == 0
+                        data-aos={index%2 === 0 ? "fade-right" : "fade-left"}
+                        className={index % 2 === 0
                         ? "mx-5 rounded-lg flex-col lg:flex-row shadow-lg box-border flex items-stretch jus" +
                             "tify-center w-3/3 h-auto"
                         : "mx-5 mt-5 mb-2 rounded-lg flex-col lg:flex-row-reverse shadow-lg box-border flex" +
@@ -71,7 +79,7 @@ export default function Home({data}) {
                             <p
                                 className="text-gray-500 md:text-lg text-sm leading-relaxed mt-4 break-words">{item.explanation}</p>
                             <div
-                                className={index % 2 == 0
+                                className={index % 2 === 0
                                 ? "flex justify-end"
                                 : "flex justify-start"}>
                                 <button

@@ -1,12 +1,17 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import {useRouter} from 'next/router'
+import AOS from "aos";
 
 export default function SpaceSearch({data, error}) {
 
     const router = useRouter()
     let searchField = ''
-
+    useEffect(() => {
+        AOS.init({
+            // duration : 5000
+        });
+    }, []);
     const handleSubmit = (e) => {
         e.preventDefault()
         if (searchField) {
@@ -59,7 +64,7 @@ export default function SpaceSearch({data, error}) {
                             const {data, links} = item
                             const {title, description_508} = data[0]
                             return (
-                                <div key={index} className="p-4 sm:p-10 w-96">
+                                <div key={index} data-aos="fade-up" className="p-4 sm:p-10 w-96">
 
                                     <div
                                         className="rounded align-center flex flex-col justify-center h-full items-center  overflow-hidden shadow-lg">
@@ -95,9 +100,9 @@ export default function SpaceSearch({data, error}) {
                 </div>
                 <div className="flex justify-center align-center">
 
-                    <p className="text-center mt-16">{error === true || error !== 'empty'
-                            ? 'No Results found. Please try again.'
-                            : null}</p>
+                    {/*<p className="text-center mt-16">{error === true || error !== 'empty'*/}
+                    {/*        ? 'No Results found. Please try again.'*/}
+                    {/*        : null}</p>*/}
                 </div>
             </div>
 

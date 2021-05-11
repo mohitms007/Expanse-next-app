@@ -3,7 +3,7 @@ import {GiSpaceShuttle} from 'react-icons/gi'
 
 export const About = () => {
     return (
-        <div className="flex justify-center bg-white dark:bg-black px-8 mt-24">
+        <div className="flex flex-col md:flex-row items-center  justify-center bg-white dark:bg-black px-8 mt-24">
  <img className="rounded-full h-72 mt-8 w-72" src="./profile.png"/>
  <main
             id="skip"
@@ -25,7 +25,7 @@ export const About = () => {
            
            
             </div>
-            <p className="text-gray-500 flex mt-30 mx-auto hover:text-gray-600 transition" href="/tweets"><GiSpaceShuttle className="mr-2"/>Powered By Nasa API</p> 
+          
         </main>
        
         </div>

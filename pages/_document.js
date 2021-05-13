@@ -22,6 +22,7 @@ export default class MyDocument extends Document {
                         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
                     />
                     <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Dela+Gothic+One&family=Inter&family=Oswald:wght@200;400&display=swap" rel="stylesheet"/>
+
                 </Head>
 
                 <body>

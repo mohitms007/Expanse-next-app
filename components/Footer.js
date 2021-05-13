@@ -69,7 +69,7 @@ export const Footer = () => {
 
                     <div
                         className="font-mono flex flex-baseline text-gray-500  cursor-pointer text-3xl">
-                        <img className="h-10 mr-2 rounded-full" src="./logo-2.png" alt='image'/>
+                        <img className="h-10 mr-2 rounded-full" src="/logo-2.png" alt='image'/>
                         Expanse
                     </div>
                 </Link>

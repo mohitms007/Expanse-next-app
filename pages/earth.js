@@ -3,7 +3,6 @@ import {AiOutlineArrowRight} from 'react-icons/ai'
 import axios from 'axios'
 import {Link} from 'react-scroll'
 import {useRouter } from 'next/router'
-import {useHistory} from 'react-router'
 
 export default function Earth({src, error, firstRender}) {
     const router = useRouter()

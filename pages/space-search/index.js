@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import {useRouter} from 'next/router'
+
 import AOS from "aos";
 
-export default function SpaceSearch({data, error}) {
 
-    const router = useRouter()
+export default function Index({data, error}) {
+
+    const router  = useRouter()
+    const {query} = router
     let searchField = ''
     useEffect(() => {
         AOS.init({
@@ -19,10 +22,11 @@ export default function SpaceSearch({data, error}) {
         }
 
     }
+    console.log(data)
 
     return (
         <div>
-            <div className="main mx-auto">
+            <div className="main mx-auto mb-40">
                 <div className="px-4  sm:px-8 lg:px-16 xl:px-20 mx-auto">
 
                     <div className="hero">
@@ -85,8 +89,12 @@ export default function SpaceSearch({data, error}) {
                                             </p>
                                         </div>
                                         <div className="flex justify-end w-full">
-                                            <button
-                                                className="px-2 py-1 mt-2 mb-4 mx-2 hover:bg-blue-600 text-xs bg-blue-500 text-white font-bold rounded-full focus:outline-none ">View Details</button>
+
+                                                <button
+                                                    onClick={() => router.push(`/space-search/detail-search?${window.location.search.substring(1)}&id=${index}`)}
+                                                    className="px-2 py-1 mt-2 mb-4 mx-2 hover:bg-blue-600 text-xs bg-blue-500 text-white font-bold rounded-full focus:outline-none ">View Details</button>
+
+
 
                                         </div>
 
@@ -98,15 +106,11 @@ export default function SpaceSearch({data, error}) {
 }
 
                 </div>
-                <div className="flex justify-center align-center">
 
-                    {/*<p className="text-center mt-16">{error === true || error !== 'empty'*/}
-                    {/*        ? 'No Results found. Please try again.'*/}
-                    {/*        : null}</p>*/}
-                </div>
             </div>
 
         </div>
+
     )
 }
 

@@ -3,19 +3,13 @@ import Link from 'next/link'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {GrClose} from 'react-icons/gr'
 import {useState} from "react"
-import AOS from "aos";
-import "aos/dist/aos.css";
 import {useEffect} from "react";
 
 export default function Navbar() {
 
     const [isOpen, setIsOpen] = useState(false)
 
-    useEffect(() => {
-        AOS.init({
-            // duration : 5000
-        });
-    }, []);
+
     return (
         <nav className="bg-white navbar w-screen px-4 z-40 left-0 right-0 top-0 fixed py-2">
             <div className="max-w-7xl mx-auto">
@@ -25,7 +19,7 @@ export default function Navbar() {
                         <Link href="/">
                            
                             <div className="font-mono flex flex-baseline cursor-pointer text-3xl">
-                            <img className="h-10 mt-2 sm:mt-0  mr-2" src="./logo-2.png" alt="logo"/> <span className="sm:mt-0 mt-2">Expanse</span>
+                            <img className="h-10 mt-2 sm:mt-0  mr-2" src="/logo-2.png" alt="logo"/> <span className="sm:mt-0 mt-2">Expanse</span>
                             </div>
                         </Link>
 

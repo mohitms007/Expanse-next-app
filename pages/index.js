@@ -4,6 +4,7 @@ import AOS from "aos";
 import { validURL } from "../components/utils";
 import axios from "axios";
 import { useState } from "react";
+import {BsFillBookmarkFill, BsBookmark} from 'react-icons/bs'
 
 
 export default function Home({ data }) {
@@ -113,8 +114,9 @@ export default function Home({ data }) {
                   index % 2 === 0 ? "flex justify-end" : "flex justify-start"
                 }
               >
-                <button disabled={checkIfSaveClicked()} onClick={() => handleSave(item, index)} className="mt-10 bg-blue-500 px-2 py-0.5 hover:shadow-md hover:bg-blue-600 rounded-lg font-bold text-white">
-                  {checkIfSaveClicked(index) ? 'Saved' : 'Save For Later' }
+                <button disabled={checkIfSaveClicked()} onClick={() => handleSave(item, index)} className="mt-10 bg-blue-500 flex justify-center items-center w-200 gap-1 px-4 py-0.5 hover:shadow-md hover:bg-blue-600 rounded-lg font-bold text-white">
+                  {checkIfSaveClicked(index) ? <>Saved<BsFillBookmarkFill/></> : <>Save For Later <BsBookmark/> </>}
+                 
                 </button>
               </div>
             </div>

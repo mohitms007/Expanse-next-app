@@ -5,6 +5,7 @@ import {Link} from 'react-scroll'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useEffect} from "react";
+
 export default function RoverGallery({data}) {
 
     const real_data = data
@@ -18,6 +19,8 @@ export default function RoverGallery({data}) {
             // duration : 5000
         });
     }, []);
+
+
     const router = useRouter()
     return (
         <div>
@@ -109,7 +112,7 @@ export default function RoverGallery({data}) {
                 <div
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center container">
 
-                    {real_data.map((item) => {
+                    {real_data?.map((item) => {
                         return (
                             <div key={item.id} data-aos="zoom-in" className="p-4 sm:p-10">
 

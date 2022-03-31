@@ -43,6 +43,11 @@ export default function Navbar() {
                                 <div className="navlink">Search</div>
                             </div>
                         </Link>
+                        <Link href="/saved">
+                            <div className="py-4">
+                                <div className="navlink">Saved</div>
+                            </div>
+                        </Link>
                         <Link href="/about">
                             <div className="py-4">
                                 <div className="navlink">About</div>

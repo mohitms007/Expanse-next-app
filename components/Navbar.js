@@ -28,11 +28,6 @@ export default function Navbar() {
                     <div
                         className="text-xl tracking-wider font-bold font-title hidden  sm:flex sm:flex-row flex-col  box-border text-gray-700 mb-0 justify-baseline space-x-6">
 
-                        <Link href="/earth">
-                            <div className="py-4">
-                                <div className="navlink">Earth</div>
-                            </div>
-                        </Link>
                         <Link href="/rover-gallery">
                             <div className="py-4">
                                 <div  className="navlink">Rover</div>

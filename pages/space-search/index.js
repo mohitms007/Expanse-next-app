@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
+import {RiPhoneFindLine} from 'react-icons/ri'
 import {useRouter} from 'next/router'
+
 
 import AOS from "aos";
 
@@ -9,6 +11,7 @@ export default function Index({data, error}) {
 
     const router  = useRouter()
     const {query} = router
+    const [startedSearching, setStartedSearching] = useState(false)
     let searchField = ''
     useEffect(() => {
         AOS.init({
@@ -17,17 +20,16 @@ export default function Index({data, error}) {
     }, []);
     const handleSubmit = (e) => {
         e.preventDefault()
+        setStartedSearching(true)
         if (searchField) {
             router.push(`/space-search?searchQuery=${searchField}`)
         }
-
     }
-    console.log(data)
 
     return (
         <div>
             <div className="main mx-auto mb-40">
-                <div className="px-4  sm:px-8 lg:px-16 xl:px-20 mx-auto">
+                <span className="px-4  sm:px-8 lg:px-16 xl:px-20 mx-auto">
 
                     <div className="hero">
 
@@ -59,10 +61,12 @@ export default function Index({data, error}) {
                             </div>
                         </div>
                     </div>
-                </div>
+                    {data.length === 0 &&  startedSearching && <div className=" font-base text-base text-center mt-2 text-gray-600"> <span type="submit" className="outline-none focus:outline-none"><RiPhoneFindLine className="ml-2 mt-4 text-gray-500"/></span> No Stories were Found...</div>}
+                </span>
             </div>
             <div className="container mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 text-center lg:grid-cols-3">
+ 
                     {error === false || error !== 'empty' ? data
                         ?.map((item, index) => {
                             const {data, links} = item

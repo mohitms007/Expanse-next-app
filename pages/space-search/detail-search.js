@@ -2,7 +2,6 @@ import {AiFillInstagram,AiFillGithub, AiFillLinkedin} from 'react-icons/ai'
 import {GiSpaceShuttle} from 'react-icons/gi'
 
 export const DetailSearch = ({data, error}) => {
-    console.log(data.links[1].href)
     return (
         <div className="flex flex-col md:flex-row items-center  justify-center bg-white dark:bg-black px-8 mt-40">
             <img className="rounded-lg h-72 mt-8 w-72" alt="profile-pic" src={data.links[0].href}/>

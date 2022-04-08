@@ -22,6 +22,7 @@
   </p>
 </p>
 
+### v.0.2 is now live and has some minor changes and additions. Expect more to come out soon!!!!
 
 
 <!-- TABLE OF CONTENTS -->

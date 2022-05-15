@@ -57,7 +57,7 @@
 ## About The Project
 
 
-A space based website made with next.js, tailwind and Nasa API. We can search for events, rover galleries and stories of the day to keep you update what's happening in space.
+A space based website made with next.js, tailwind and Nasa API. We can search for events, rover galleries and stories of the day to keep you updated on  what's happening in space.
 Server Side Rendering is used here with the help of serverSideProps which we get using next.js and be able to render such high quality images.
 
 
